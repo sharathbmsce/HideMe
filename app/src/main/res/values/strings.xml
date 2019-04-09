@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">trial1</string>
+    <string name="title_activity_encode">encode</string>
+    <string name="upload_base_image">Upload Base Image</string>
+    <string name="upload_secret_image">upload secret image</string>
+    <string name="hello">hello</string>
+    <string name="action_settings" />
+    <string name="save">Save</string>
+    <string name="upload_image_to_decode">Upload Image to Decode</string>
+</resources>
