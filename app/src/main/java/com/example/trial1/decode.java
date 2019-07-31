@@ -40,19 +40,16 @@ public class decode extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-       // getMenuInflater().inflate(R.menu.menu_decode, menu);
+       
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+       
         if (id == R.id.action_settings) {
             return true;
         }
@@ -83,12 +80,11 @@ public class decode extends Activity {
     }
 
     public String getPath(Uri uri) {
-        // just some safety built in
+       
         if( uri == null ) {
             return null;
         }
-        // try to retrieve the image from the media store first
-        // this will only work for images selected from gallery
+     
         String[] projection = { MediaStore.Images.Media.DATA };
         Cursor cursor = getContentResolver().query(uri, projection, null, null, null);
         if( cursor != null ) {
@@ -97,7 +93,7 @@ public class decode extends Activity {
             cursor.moveToFirst();
             return cursor.getString(column_index);
         }
-        // this is our fallback here
+        
         return uri.getPath();
     }
 
