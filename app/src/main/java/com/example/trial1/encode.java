@@ -48,19 +48,15 @@ public class encode extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-     //   getMenuInflater().inflate(R.menu.menu_encode, menu);
-        return true;
+      
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+       
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+       
         if (id == R.id.action_settings) {
             return true;
         }
@@ -78,7 +74,7 @@ public class encode extends Activity {
         uploadFile();
     }
 
-    public static final int SELECT_PICTURE = 1; //for the result listener
+    public static final int SELECT_PICTURE = 1; 
     public static final int SELECT_FILE = 2;
     public String selectedImagePath;
 
@@ -129,9 +125,6 @@ public class encode extends Activity {
         int imageHeight = options.outHeight;
         int imageWidth = options.outWidth;
 
-        //for later use
-        //String imageType = options.outMimeType;
-
         int reqHeight = imageView.getMaxHeight();
         int reqWidth = imageView.getMaxWidth();
 
@@ -142,8 +135,7 @@ public class encode extends Activity {
             final int halfHeight = imageHeight / 2;
             final int halfWidth = imageWidth / 2;
 
-            // Calculate the largest inSampleSize value that is a power of 2 and keeps both
-            // height and width larger than the requested height and width.
+        
             while ((halfHeight / inSampleSize) > reqHeight
                     && (halfWidth / inSampleSize) > reqWidth) {
                 inSampleSize *= 2;
@@ -156,12 +148,10 @@ public class encode extends Activity {
     }
 
     public String getPath(Uri uri) {
-        // just some safety built in
+        
         if( uri == null ) {
             return null;
         }
-        // try to retrieve the image from the media store first
-        // this will only work for images selected from gallery
         String[] projection = { MediaStore.Images.Media.DATA };
         Cursor cursor = getContentResolver().query(uri, projection, null, null, null);
         if( cursor != null ) {
@@ -170,7 +160,7 @@ public class encode extends Activity {
             cursor.moveToFirst();
             return cursor.getString(column_index);
         }
-        // this is our fallback here
+        
         return uri.getPath();
     }
 
